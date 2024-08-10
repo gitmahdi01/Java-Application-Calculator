@@ -67,36 +67,7 @@ public class Calculator {
                 }
                 
             }
-            // switch (operator[i]) {
-            //     case '*':
-                    
-            //         result = result * numbers[i];
-            //         break;
-            //         case '/':
-            //         if (numbers[i] != 0) {
-            //             result =result / numbers[i];
-            //         } else {
-            //             System.out.println("Error! Division by zero.");
-            //             return;
-            //         }
-                    
-                    
-            //         break;
-            //         case '+':
-            //         result = result+ numbers[i];
-                    
-            //         break;
-            //         case '-':
-            //         result = result - numbers[i];
-                    
-            //         break;
-                
-            
-            //     default:
-            //         // System.out.println("Invalid Operator. use +,-,*,/");
-            //     break;
-                    
-            // }
+
             
         }
         System.out.println("The answer is: "+ result);
