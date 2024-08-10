@@ -8,55 +8,95 @@ public class Calculator {
         System.out.println("number of parameters");
         int param = calc.nextInt();
 
-        double numbers[];
-        numbers = new double[param];
-        char operator[];
-        operator = new char[param];
+        // double numbers[];
+        // numbers = new double[param];
+        // char operator[];
+        // operator = new char[param];
+
+        ArrayList<Double> numbers = new ArrayList<>();
+        ArrayList<Character> operator = new ArrayList<>();
 
 
         System.out.println("Enter number 1");
-        numbers[0]= calc.nextDouble();
+        numbers.add(calc.nextDouble());
         for (int i = 1; i < param; i++) {
             System.out.println("Enter the operator (+, -, *, /):");
-            operator[i]= calc.next().charAt(0);
+            operator.add(calc.next().charAt(0));
             System.out.println("Enter number "+(i+1));
-            numbers[i]= calc.nextDouble();      
+            numbers.add(calc.nextDouble());      
             
         }
 
-        double result = numbers[0];
+        double result = 0;
 
-        for (int i = 0; i < param; i++) {
-            switch (operator[i]) {
-                case '*':
+        for (int i = 0; i < operator.size() ; i++) {
+            char operators = operator.get(i);
+
+            if (operators =='*'|| operators == '/') {
+
+                if (operators=='*') {
+                    result = numbers.get(i) * numbers.get(i+1);
                     
-                    result = result * numbers[i];
-                    break;
-                    case '/':
-                    if (numbers[i] != 0) {
-                        result =result / numbers[i];
+                }else if (operators == '/') {
+                    if (numbers.get(i) != 0) {
+                        result =numbers.get(i) / numbers.get(i+1);
                     } else {
                         System.out.println("Error! Division by zero.");
                         return;
                     }
+
+                    
+                }
+                numbers.set(i, result);
+                numbers.remove(i + 1);
+                operator.remove(i);
+                i--;
+  
+
+                
+            }
+            result= numbers.get(0);
+            for (int j = 0; j < operator.size(); j++) {
+                char operatorss = operator.get(j);
+
+                if (operatorss == '+') {
+                    result += numbers.get(j + 1);
+                    
+                }else if (operatorss == '-') {
+                    result -= numbers.get(j + 1);
+                }
+                
+            }
+            // switch (operator[i]) {
+            //     case '*':
+                    
+            //         result = result * numbers[i];
+            //         break;
+            //         case '/':
+            //         if (numbers[i] != 0) {
+            //             result =result / numbers[i];
+            //         } else {
+            //             System.out.println("Error! Division by zero.");
+            //             return;
+            //         }
                     
                     
-                    break;
-                    case '+':
-                    result = result+ numbers[i];
+            //         break;
+            //         case '+':
+            //         result = result+ numbers[i];
                     
-                    break;
-                    case '-':
-                    result = result - numbers[i];>
+            //         break;
+            //         case '-':
+            //         result = result - numbers[i];
                     
-                    break;
+            //         break;
                 
             
-                default:
-                    // System.out.println("Invalid Operator. use +,-,*,/");
-                break;
+            //     default:
+            //         // System.out.println("Invalid Operator. use +,-,*,/");
+            //     break;
                     
-            }
+            // }
             
         }
         System.out.println("The answer is: "+ result);
