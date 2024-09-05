@@ -11,6 +11,7 @@ public class Calculator {
         // double numbers[];
         // numbers = new double[param];
         // char operator[];
+        //operator
         // operator = new char[param];
 
         ArrayList<Double> numbers = new ArrayList<>();
